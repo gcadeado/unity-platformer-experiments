@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us" style="height: 100%; width: 100%;">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Unity WebGL Player | Platformer Experiments</title>
+  </head>
+  <body
+    style="
+      text-align: center;
+      background-color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    "
+  >
+    <canvas
+      id="unity-canvas"
+      style="width: 1280px; height: 720px; background: #1d212d;"
+    ></canvas>
+    <script src="Build/webgl.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/webgl.data",
+        frameworkUrl: "Build/webgl.framework.js",
+        codeUrl: "Build/webgl.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Cencic Experiments",
+        productName: "Platformer Experiments",
+        productVersion: "0.1",
+      });
+    </script>
+  </body>
+</html>
