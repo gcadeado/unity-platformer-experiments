@@ -1,0 +1,16 @@
+{
+"companyName": "Cencic Experiments",
+"productName": "Platformer Experiments",
+"productVersion": "0.1",
+"dataUrl": "web_gl.data.unityweb",
+"wasmCodeUrl": "web_gl.wasm.code.unityweb",
+"wasmFrameworkUrl": "web_gl.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.3f1"
+}
