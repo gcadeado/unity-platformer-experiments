@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Cinemachine;
+using Tools.Audio;
 
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
 
+    [Header("Movements")]
     public float maxJumpHeight = 4;
     public float minJumpHeight = 1;
     public float timeToJumpApex = .4f;
@@ -25,15 +28,28 @@ public class Player : MonoBehaviour
 
     Controller2D controller;
 
-    private SpriteRenderer sr = null;
+    [Header("Audio")]
+    [SerializeField]
+    private AudioManager audioManager = null;
+
+    private AudioSourcePlayer audioPlayer = null;
+
+    [SerializeField]
+    private Sound playerLanding = null;
 
     private Animator animator = null;
 
+    private SpriteRenderer sr = null;
+
+    private CinemachineImpulseSource impulseSource;
+
     void Start()
     {
+        audioPlayer = AudioSourcePlayer.AddAsComponent(gameObject, audioManager);
         controller = GetComponent<Controller2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -44,11 +60,13 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if (velocity.y < -10 && controller.collisions.below)
+        if (velocity.y < -14 && controller.collisions.below)
         {
             Debug.Log("Pong");
             animator.SetBool("isJumping", false);
             animator.SetTrigger("triggerBounce");
+            impulseSource.GenerateImpulse(velocity);
+            audioPlayer.PlaySound(playerLanding);
         }
 
         if (controller.collisions.above || controller.collisions.below)
