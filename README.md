@@ -12,6 +12,7 @@ https://gcadeado.github.io/unity-platformer-experiments/
 - Extended 2D tools with [2d-extras](https://github.com/Unity-Technologies/2d-extras)
 - 2D animations and controllers
 - TextMeshPro with custom script animations
+- Cinemachine studies: Impulse Source & Listener for landing VFX with custom Profiles
 
 ### Credits
 

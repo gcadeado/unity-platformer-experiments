@@ -30,7 +30,7 @@ MonoBehaviour:
       Amplitude: 0
       Constant: 0
     Y:
-      Frequency: 9
+      Frequency: 16
       Amplitude: 0.8
       Constant: 1
     Z:
@@ -42,9 +42,9 @@ MonoBehaviour:
       Amplitude: 0
       Constant: 0
     Y:
-      Frequency: 55
+      Frequency: 0
       Amplitude: 1
-      Constant: 1
+      Constant: 0
     Z:
       Frequency: 0
       Amplitude: 0
